@@ -1,0 +1,15 @@
+spring:
+  liquibase:
+    drop-first: false
+    contexts:
+    change-log: classpath:db/changelog/db.changelog.sql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/Customer
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+
