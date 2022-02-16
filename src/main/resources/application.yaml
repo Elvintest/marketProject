@@ -2,14 +2,14 @@ spring:
   liquibase:
     drop-first: false
     contexts:
-    change-log: classpath:db/changelog/db.changelog.sql
+    change-log: db/changelog/Changelog.xml
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/Customer
+    url: jdbc:postgresql://localhost:5432/store
     username: postgres
-    password: postgres
+    password: 2503
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
 
 

@@ -1,4 +1,4 @@
-package com.example.tutorial.customer;
+package com.example.tutorial.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

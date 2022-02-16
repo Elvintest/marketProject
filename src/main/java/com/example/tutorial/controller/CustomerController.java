@@ -1,11 +1,12 @@
-package com.example.tutorial.customer;
-//это контроллер, тут эндпоинты, их запросы
+package com.example.tutorial.controller;
 
+
+import com.example.tutorial.dto.CreateCustomerDto;
+import com.example.tutorial.dto.CustomerAgeDto;
+import com.example.tutorial.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class CustomerController {
 
-    private CustomerService customerService;
+    private final CustomerService customerService;
 
     @Autowired
     public CustomerController(CustomerService customerService) {

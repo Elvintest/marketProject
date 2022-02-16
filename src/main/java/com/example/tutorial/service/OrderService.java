@@ -1,20 +1,23 @@
-package com.example.tutorial.orders;
+package com.example.tutorial.service;
 
 
-import com.example.tutorial.customer.Customer;
-import com.example.tutorial.customer.CustomerRepository;
-import javafx.util.Builder;
+import com.example.tutorial.entity.Customer;
+import com.example.tutorial.repository.CustomerRepository;
+import com.example.tutorial.dto.OrderDto;
+import com.example.tutorial.entity.Goods;
+import com.example.tutorial.entity.Orders;
+import com.example.tutorial.repository.GoodRepository;
+import com.example.tutorial.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.annotation.Native;
 import java.time.LocalDateTime;
 
 @Service
 public class OrderService {
-    OrderRepository orderRepository;
-    GoodRepository goodRepository;
-    CustomerRepository customerRepository;
+    private final OrderRepository orderRepository;
+    private final GoodRepository goodRepository;
+    private final CustomerRepository customerRepository;
 
     @Autowired
     public OrderService(OrderRepository orderRepository, GoodRepository goodRepository, CustomerRepository customerRepository) {
@@ -24,15 +27,11 @@ public class OrderService {
     }
 
     public String addGood(Goods goods) {
-        try {
-            goodRepository.save(goods);
-        } catch (Exception e) {
-            return e.getMessage().equals("could not execute statement; SQL [n/a];" +
-                    " constraint [goods_name_key]; nested exception is" +
-                    " org.hibernate.exception.ConstraintViolationException:" +
-                    " could not execute statement") ? "such good already exists" : e.getMessage();
+        if (goodRepository.existsByName(goods.getName())){
+            return "Such good already exists";
         }
-        return "1";
+        goodRepository.save(goods);
+        return "the good has been successfully saved";
     }
 
     public void commitOrder(OrderDto orderDto) {

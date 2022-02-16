@@ -1,4 +1,4 @@
-package com.example.tutorial.customer;
+package com.example.tutorial.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Builder
 @Data
 @Entity
-@Table(name = "CUSTOMER")
+@Table(name = "customers")
 
 public class Customer {
     @Column(name = "NAME")

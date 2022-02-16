@@ -1,18 +1,17 @@
-package com.example.tutorial.customer;
+package com.example.tutorial.service;
 
+import com.example.tutorial.entity.Customer;
+import com.example.tutorial.dto.CreateCustomerDto;
+import com.example.tutorial.dto.CustomerAgeDto;
+import com.example.tutorial.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Slf4j
 @Service

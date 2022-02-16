@@ -1,6 +1,5 @@
-package com.example.tutorial.orders;
+package com.example.tutorial.entity;
 
-import com.example.tutorial.customer.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
